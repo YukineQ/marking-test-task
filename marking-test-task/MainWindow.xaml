@@ -99,7 +99,7 @@
                               BorderThickness="{TemplateBinding BorderThickness}"
                               BorderBrush="{TemplateBinding BorderBrush}"
                               Background="{TemplateBinding Background}"
-                          >
+                            >
                                 <ContentPresenter
                                   ContentSource="SelectedContent"
                                   SnapsToDevicePixels="True"
