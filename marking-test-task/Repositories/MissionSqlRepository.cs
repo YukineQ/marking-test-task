@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace marking_test_task.Repositories
 {
-    public class MissionSqlRepository(ApplicationContext context): IMissionRepository
+    public class MissionSqlRepository(ApplicationContext context) : IMissionRepository
     {
         private readonly ApplicationContext _context = context;
 

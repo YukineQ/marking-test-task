@@ -20,7 +20,7 @@ namespace marking_test_task.Services
         public static async Task WriteAll(string fileName, string data)
         {
             string executionDir = AppDomain.CurrentDomain.BaseDirectory;
-            await WriteAll(executionDir, fileName, data);            
+            await WriteAll(executionDir, fileName, data);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace marking_test_task
 {
-    public class App:Application
+    public class App : Application
     {
         readonly MainWindow mainWindow;
 

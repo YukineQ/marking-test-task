@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace marking_test_task.Services
 {
-    public class DialogService: IDialogService
+    public class DialogService : IDialogService
     {
         public void ShowMessage(string message)
         {
@@ -19,7 +19,7 @@ namespace marking_test_task.Services
         public bool OpenFileDialog()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            if(openFileDialog.ShowDialog() == false)
+            if (openFileDialog.ShowDialog() == false)
             {
                 return false;
             }
@@ -28,10 +28,10 @@ namespace marking_test_task.Services
             return true;
         }
 
-        public bool SaveFileDialog() 
+        public bool SaveFileDialog()
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            if(saveFileDialog.ShowDialog() == false)
+            if (saveFileDialog.ShowDialog() == false)
             {
                 return false;
             }

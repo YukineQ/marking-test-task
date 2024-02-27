@@ -13,7 +13,7 @@ namespace marking_test_task.Services
         private readonly IMapper _mapper;
 
         public AllocationMapService(
-            IMissionRepository missionRepository, 
+            IMissionRepository missionRepository,
             IMapper mapper
         )
         {
@@ -26,7 +26,7 @@ namespace marking_test_task.Services
             var missionId = currentTask.MissionResponce.Id;
             var gtin = currentTask.MissionResponce.Lot.Product.Gtin;
 
-            var mission = _missionRepository.GetSingleById(missionId) 
+            var mission = _missionRepository.GetSingleById(missionId)
                 ?? throw new Exception($"Mission with ID {missionId} does not exist.");
 
             var mappedMission = _mapper.Map<MissionDto>(mission);

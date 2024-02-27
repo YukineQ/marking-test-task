@@ -65,7 +65,7 @@ namespace marking_test_task
 
                     services.AddDbContext<ApplicationContext>(options =>
                     {
-                        options.UseSqlite("Data Source=C:\\users\\mayberain\\marking-test.db");
+                        options.UseSqlite(context.GetConnectionString("DefaultConnection"));
                     });
                 });
         }

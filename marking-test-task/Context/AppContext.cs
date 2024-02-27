@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace marking_test_task.Context
 {
-    public class ApplicationContext: DbContext
+    public class ApplicationContext : DbContext
     {
-        public ApplicationContext(DbContextOptions<ApplicationContext> options): base(options) { }
+        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) { }
 
         public DbSet<Pallete> Palletes { get; set; }
         public DbSet<Box> Boxes { get; set; }

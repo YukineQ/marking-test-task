@@ -9,7 +9,8 @@ namespace marking_test_task.Repositories
         protected abstract string TableName { get; }
         private readonly ApplicationContext _context;
 
-        public SequenceMixin(ApplicationContext context) {
+        public SequenceMixin(ApplicationContext context)
+        {
             _context = context;
         }
 
@@ -17,7 +18,7 @@ namespace marking_test_task.Repositories
         {
             var sequence = _context.Database.SqlQuery<Sequence>(
                 @$"select * from sqlite_sequence")
-                .Where(x=>x.Name==TableName)
+                .Where(x => x.Name == TableName)
                 .First();
 
             return sequence;

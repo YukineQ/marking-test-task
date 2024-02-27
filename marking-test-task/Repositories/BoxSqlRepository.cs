@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace marking_test_task.Repositories
 {
-    public class BoxSqlRepository: SequenceMixin, IBoxRepository
+    public class BoxSqlRepository : SequenceMixin, IBoxRepository
     {
         private readonly ApplicationContext _context;
         protected override string TableName => _context.Boxes.EntityType.GetTableName();
 
-        public BoxSqlRepository(ApplicationContext context) : base(context) 
+        public BoxSqlRepository(ApplicationContext context) : base(context)
         {
             _context = context;
         }

@@ -13,7 +13,7 @@ namespace marking_test_task.Config
 
         public static string RuleForBoxes(string gtin, int productAmount, int id)
         {
-           return $"01{gtin}37{productAmount}21{id}";
+            return $"01{gtin}37{productAmount}21{id}";
         }
 
         public static string RuleForPalletes(string gtin, int productAmount, int id)

@@ -9,7 +9,7 @@ namespace marking_test_task.Repositories
         private readonly ApplicationContext _context;
         protected override string TableName => _context.Palletes.EntityType.GetTableName();
 
-        public PalleteSqlRepository(ApplicationContext context) : base(context) 
+        public PalleteSqlRepository(ApplicationContext context) : base(context)
         {
             _context = context;
         }
@@ -18,7 +18,7 @@ namespace marking_test_task.Repositories
         {
             return _context.Palletes.FirstOrDefault(x => x.Id == id);
         }
-        
+
         public void Add(Pallete pallete)
         {
             _context.Palletes.Add(pallete);

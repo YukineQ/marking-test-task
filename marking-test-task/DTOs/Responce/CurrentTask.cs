@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace marking_test_task.Models.Responce
+namespace marking_test_task.DTOs.Responce
 {
     public class CurrentTask
     {
