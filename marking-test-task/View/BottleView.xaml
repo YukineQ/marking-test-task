@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="marking_test_task.View.BottleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:marking_test_task.View"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Resources/MaterialDesign.xaml" />
+    </UserControl.Resources>
+    <Grid>
+        <DataGrid ItemsSource="{Binding Bottles}" AutoGenerateColumns="False" Style="{DynamicResource MaterialDesignDataGrid}" Background="#EFF2FF" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" IsReadOnly="True" Width="*" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Код продукции" IsReadOnly="True" Width="*" Binding="{Binding Code}"/>
+                <DataGridTextColumn Header="Id паллета" IsReadOnly="True" Width="*" Binding="{Binding BoxId}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
