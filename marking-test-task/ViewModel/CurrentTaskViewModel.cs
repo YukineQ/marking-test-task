@@ -1,7 +1,7 @@
 ﻿using marking_test_task.Config;
 using marking_test_task.Helpers;
 using marking_test_task.Models;
-using marking_test_task.Models.Responce;
+using marking_test_task.DTOs.Responce;
 using marking_test_task.Repositories;
 using marking_test_task.Services;
 using marking_test_task.Services.Commands;
@@ -89,17 +89,20 @@ namespace marking_test_task.ViewModel
 
         private Pallete[] CreatePalletes()
         {
-            return Multiplicator.UseMultiple(idx =>
-                CreatePalleteModel(idx)
-                    .SetBoxes([.. CreateBoxes(idx)]),
+            var nextPalleteId = _palleteRepository.GetSequence().Seq + 1;
+            var nextBoxId = _boxRepository.GetSequence().Seq + 1;
+
+            return Multiplicator.UseMultiple(increment =>
+                CreatePalleteModel(nextPalleteId + increment)
+                    .SetBoxes([.. CreateBoxes(nextBoxId + increment)]),
                 _package.PalletFormat
             );
         }
 
-        private Box[] CreateBoxes(int loop)
+        private Box[] CreateBoxes(int nextId)
         {
-            return Multiplicator.UseMultiple(idx =>
-                CreateBoxModel(idx + loop)
+            return Multiplicator.UseMultiple(increment =>
+                CreateBoxModel(increment + nextId)
                     .AddBottles(CreateBottles().ToList()),
                 _package.PalletFormat
             );
@@ -113,24 +116,20 @@ namespace marking_test_task.ViewModel
             );
         }
 
-        private Pallete CreatePalleteModel(int increment)
+        private Pallete CreatePalleteModel(int nextId)
         {
-            var nextId = _palleteRepository.GetSequence().Seq + 1;
-
             return new Pallete()
                 .SetCode(
                     _gtin, 
                     _package.PalletFormat, 
-                    nextId + increment
+                    nextId
                 );
         }
 
-        private Box CreateBoxModel(int increment)
+        private Box CreateBoxModel(int id)
         {
-            var nextId = _boxRepository.GetSequence().Seq + 1;
-
             return new Box()
-                .SetCode(_gtin, _package.BoxFormat, increment + nextId);
+                .SetCode(_gtin, _package.BoxFormat, id);
         }
 
         private Bottle CreateBottleModel()
